@@ -1,88 +1,46 @@
 package com.company;
 
 /*
-* In a Java file called ArrayFunReverselt, provide code that declares the array [1, 2, 3, 4, 5],
-* creates another array of equal length, and fills that array with values from the original array but in reverse order.
-* Finally, your code must print the contents of both arrays to the screen
-* */
+ * In a Java file called ArrayFunReverselt, provide code that declares the array [1, 2, 3, 4, 5],
+ * creates another array of equal length, and fills that array with values from the original array but in reverse order.
+ * Finally, your code must print the contents of both arrays to the screen
+ * */
 
-import java.util.Arrays;
+
 
 public class ArrayFunReverselt {
 
-/*
-    public static void originalArray(){
+    public static void reverseArray(int[] arr, int n){
 
-        //declaring original array
-        int[] original = {1, 2, 3, 4, 5};
+        //create a new array to append reversed integers from the original array
+        int[] reversedArray = new int[n];
+        int j = n;
 
-        //print out original array
-        System.out.println("The original array is "+ original);
-
-    }
-
-    static int[] reverseOriginalArray() {
-
-        //reverse the original array with same length
-
-        int[] copyOriginal = new int[originalArray().length];
-
-        int k, t;
-
-        int n = originalArray().length;
-
-        for (int i = 0; i < n / 2; i++){
-            t = copyOriginal[i];
-            copyOriginal[i] = copyOriginal[n - i - 1];
-            copyOriginal[n - i - 1] = t;
-
+        //use for loop to add each element from the original array into the new reversed array in a reversed order.
+        for (int i = 0; i < n; i++){
+            reversedArray[j - 1] = arr[i];
+            j -= 1;
         }
-        //print the reversed
-        System.out.println("Reversed array is "+ copyOriginal);
+
+        //printing each element of reversed array
+        System.out.println("Each element of the reversed array: ");
+        for (int index = 0; index < n; index++){
+            System.out.println(reversedArray[index]);
+        }
     }
 
-
-
- */
 
     public static void main(String[] args) {
-        //declaring original array
-        int[] originalArray = {1, 2, 3, 4, 5};
+        // declare an original array with given values
+        int[] originalArr = {1, 2, 3, 4, 5};
 
-        //print out each element in the original array
-        System.out.println("These are the each element in the original array: ");
+        //print each element of the original array
+        System.out.println("Each element of the original array: ");
+        for (int k = 0; k < originalArr.length; k++){
+            System.out.println(originalArr[k]);
 
-        int n = originalArray.length;
-
-        for (int i = 0; i < n; i++) {
-            int element = originalArray[i];
-            System.out.println(element);
         }
-
-        // create a new array to add the reversed integers from the original
-        int[] reverseOriginalArray = new int [n];
-
-        int k, j, temp;
-
-        for (j = 0; j < n / 2; j++){
-            temp = originalArray[j];
-            originalArray[j] = originalArray[n - j - 1];
-            temp = originalArray[n - j - 1];
-
-            //add the reversed element into new array
-            for (int indx = 0; indx < n; indx++ ){
-                reverseOriginalArray = temp[indx];
-            }
-        }
-
-
-
-
-        //print the reversed array
-        System.out.println("Reversed array is: \n");
-        for (k = 0; k < n; k++) {
-            System.out.println(reverseOriginalArray[k]);
-        }
-
+        //reverse original array
+        reverseArray(originalArr, originalArr.length);
     }
 }
